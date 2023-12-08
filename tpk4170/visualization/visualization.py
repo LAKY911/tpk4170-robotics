@@ -105,7 +105,7 @@ class Kr6R900SixxVisualizer:
         link4 = kr6.Link4()
         link5 = kr6.Link5()
         link6 = kr6.Link6()
-        ee_link = Axes(0.1)
+        ee_link = Axes(1)
 
         joint1 = Object3D()
         joint1.position = (0.0, 0.0, 0.4)
@@ -166,7 +166,7 @@ class Kr6R900SixxVisualizer:
         for th, joint, offset, axes in zip(
             theta, self._joints, self._offsets, self._axes
         ):
-            joint.quaternion = tuple( 
+            joint.quaternion = list( 
                 np.roll(quaternion_from_euler(*((th + offset) * axes)), -1)
             )
 
@@ -199,7 +199,7 @@ class Ur5Visualizer:
         link4 = ur5.Link4()
         link5 = ur5.Link5()
         link6 = ur5.Link6()
-        ee_link = Axes(0.1)
+        ee_link = Axes(1)
 
         joint1 = Object3D()
         joint1.position = (0.0, 0.0, 0.089159)
@@ -262,7 +262,7 @@ class Ur5Visualizer:
         for th, joint, offset, axes in zip(
             theta, self._joints, self._offsets, self._axes
         ):
-            joint.quaternion = tuple(
+            joint.quaternion = list(
                 np.roll(quaternion_from_euler(*((th + offset) * axes)), -1)
             )
 
